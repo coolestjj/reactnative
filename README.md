@@ -1,3 +1,25 @@
+# RateScope
+
+Jiajun Li
+
+## Before you start
+
+We use [**React Native**](https://reactnative.dev), [**React Native Elements**](https://reactnativeelements.com/), 
+Android Studio or Xcode to build the app.
+
+**React Native** is a framework for building native mobile apps using JavaScript and React. It is based on ReactJS and uses the same fundamental UI building blocks as regular iOS and Android apps. 
+You just put those building blocks together.
+
+**React Native Elements** is a cross-platform UI toolkit for React Native. It is a React Native UI library that provides a set of reusable components that are commonly used in mobile apps.
+
+**Android studio** and **Xcode** are to support emulators.
+
+Make sure to install required dependencies according to the official documentations.
+
+Make sure to add certain dependencies to the environment variables.
+
+----
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
