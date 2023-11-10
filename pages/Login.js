@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Input, CheckBox, Icon, Header} from '@rneui/themed'
 import {Button} from "@rneui/base";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 export default class Login extends Component {
     render() {
@@ -15,10 +15,10 @@ export default class Login extends Component {
                     barStyle="default"
                     centerComponent={{
                         text: "RateScope",
-                        style: { color: "#fff", fontSize: 40 },
+                        style: {color: "#fff", fontSize: 40},
                     }}
                     centerContainerStyle={{}}
-                    containerStyle={{ }}
+                    containerStyle={{}}
                     // leftComponent={{ icon: "menu", color: "#fff" }}
                     leftContainerStyle={{}}
                     linearGradientProps={{}}
@@ -32,7 +32,7 @@ export default class Login extends Component {
                 <View style={styles.container}>
 
 
-                    <Input placeholder='Email' />
+                    <Input placeholder='Email'/>
 
                     <Input placeholder='Password' secureTextEntry={true}/>
 

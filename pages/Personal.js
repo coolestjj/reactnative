@@ -1,60 +1,100 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Input, CheckBox, Header} from '@rneui/themed'
 import {Button} from "@rneui/base";
 import Icon from "react-native-vector-icons/dist/MaterialCommunityIcons";
+import DropDownPicker from 'react-native-dropdown-picker';
+import {useNavigation} from '@react-navigation/native';
+export default function Personal() {
+    const [open, setOpen] = useState(false);
+    const [value, setValue] = useState(null);
+    const [items, setItems] = useState([
+        {label: 'Hourly', value: 'hourly'},
+        {label: 'Daily', value: 'daily'},
+        {label: 'Weekly', value: 'weekly'},
+        {label: 'Monthly', value: 'monthly'},
+        {label: 'Yearly', value: 'yearly'}
+    ]);
 
+    const navigation = useNavigation();
 
-export default class Personal extends Component {
-    render() {
-        return (
-            <>
-                <Header
-                    leftComponent={<Icon name='menu' onPress={() => this.props.navigation.openDrawer()}/>}
-                    centerComponent={{text: 'Personal', style: {color: '#fff'}}}
-                    rightComponent={<Icon name='home' onPress={() => this.props.navigation.navigate('Home')}
-                    />}
-                />
+    return (
+        <>
+            <Header
+                leftComponent={<Icon name='menu'
+                                     onPress={() => this.props.navigation.openDrawer()}
+                                     size={30}/>}
+                centerComponent={{text: 'RateScope', style: {color: '#fff', fontSize: 20}}}
+                rightComponent={<Icon name='home'
+                                      onPress={() => this.props.navigation.navigate('Home')}
+                                      size={30}/>}
+            />
             <View style={styles.container}>
 
                 <View style={styles.content}>
-                    <Text>Personal</Text>
+                    <Text>Personal Profile</Text>
+
                 </View>
 
+                <View style={styles.content}>
+                    <Text>Income</Text>
+                    <Input
+                        placeholder='Income'
+                        keyboardType='numeric'
+                    />
+                </View>
+
+                <View style={styles.content}>
+                    <Text>Zip Code</Text>
+                    <Input
+                        placeholder='Zip Code'
+                        keyboardType='numeric'
+                    />
+                </View>
+
+                <View style={styles.content}>
+                    <Text>Planning Cycle</Text>
+                    <DropDownPicker open={open}
+                                    value={value}
+                                    items={items}
+                                    setOpen={setOpen}
+                                    setValue={setValue}
+                                    setItems={setItems}
+                    />
+                </View>
+
+
                 <Button
-                    buttonStyle={{ width: 150 }}
-                    containerStyle={{ margin: 5 }}
+                    buttonStyle={{width: 150}}
+                    containerStyle={{margin: 5}}
                     disabledStyle={{
                         borderWidth: 2,
                         borderColor: "#00ff2a"
                     }}
-                    disabledTitleStyle={{ color: "#006fff" }}
+                    disabledTitleStyle={{color: "#006fff"}}
                     linearGradientProps={null}
                     icon={
                         <Icon name="arrow-right"
                               size={15}
-                              color="#006FFFFF" />
+                              color="#006FFFFF"/>
                     }
-                    iconContainerStyle={{ background: "#00ff2a" }}
+                    iconContainerStyle={{background: "#00ff2a"}}
                     iconRight
-                    loadingProps={{ animating: true }}
+                    loadingProps={{animating: true}}
                     loadingStyle={{}}
-                    onPress={() => alert("click")}
-                    title="Personal Profile"
+                    // navigate to Spending
+                    onPress={() => navigation.navigate('Spending')}
+                    title="Start Planing"
                     titleProps={{}}
-                    titleStyle={{ marginHorizontal: 5 }}
+                    titleStyle={{marginHorizontal: 5}}
                     type="clear"
                 />
             </View>
-            </>
-        )
-    }
+        </>
+    )
+
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginVertical: 100,
-        paddingHorizontal: 10,
-    }
+    container: {}
 })
